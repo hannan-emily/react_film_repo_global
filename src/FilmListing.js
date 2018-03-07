@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import FilmRow from './FilmRow';
 
 class FilmListing extends Component {
+
+  handleFilterClick = (filter) => {
+    console.log("setting filterto: " + filter)
+  }
+
   render() {
 
     const { films } = this.props
@@ -15,6 +20,19 @@ class FilmListing extends Component {
     return (
       <div className="film-list">
         <h1 className="section-title">FILMS</h1>
+        <div className="film-list-filters">
+
+            <div className="film-list-filter" onClick={() => this.handleFilterClick('all')}>
+                <span>ALL</span>
+                <span className="section-count">{this.props.films.length}</span>
+            </div>
+
+            <div className="film-list-filter" onClick={() => this.handleFilterClick('faves')}>
+                <span>FAVES</span>
+                <span className="section-count">0</span>
+            </div>
+
+        </div>
         {allFilms}
       </div>
     );
