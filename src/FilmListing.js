@@ -19,14 +19,19 @@ class FilmListing extends Component {
 
   render() {
 
-    const { films } = this.props
-    const  allFilter  = (this.state.filter === 'all' ? 'is active' : '')
-    const  favesFilter = (this.state.filter === 'faves' ? 'is active' : '')
+    const { faves, films } = this.props
+    var  allFilter  = (this.state.filter === 'all' ? 'is active' : '')
+    var  favesFilter = (this.state.filter === 'faves' ? 'is active' : '')
 
-    let allFilms = films.map(function(film,index){
+    let allFilms = films.map((film,index) => {
       return(
-        <FilmRow title={film.title} date={film.release_date} key={film.id} url={film.poster_path}/>
-      )
+        <FilmRow
+          onFaveToggle={() => this.props.onFaveToggle(film)}
+          title={film.title}
+          date={film.release_date}
+          key={film.id} url={film.poster_path}
+          isFave={faves.includes(film)} />
+        )
     })
 
     return (

@@ -7,11 +7,39 @@ import './App.css';
 const films = TMDB.films
 
 class App extends Component {
+
+  constructor(props) {
+    super();
+    this.state = {
+      films,  //this is actually films:films, shortened
+      faves: [],
+      current: {}
+    }
+    this.handleFaveToggle = this.handleFaveToggle.bind(this);
+  }
+
+  handleFaveToggle(film) {
+    //this 'slice' is making a copy of this array
+    const faves = this.state.faves.slice()
+    const filmIndex = faves.indexOf(film)
+    //if the item is found (if index is NOT -1), then, add to array of faves
+    if (filmIndex !== -1) {
+      //if the film is ALREADY faved
+      faves.splice(filmIndex, 1)
+      console.log("removing a favorite from fave array", film.title)
+    } else {
+      //the film needs to be added
+      faves.push(film)
+      console.log("adding a favorite to fave array", film.title)
+    }
+    this.setState({faves}) //this is actually faves:faves
+  }
+
   render() {
     return (
       <div className="film-library">
-        <FilmListing films={films}/>
-        <FilmDetails films={films}/>
+        <FilmListing faves={this.state.faves} onFaveToggle={this.handleFaveToggle} films={this.state.films} />
+        <FilmDetails film={this.state.current} />
       </div>
     );
   }
