@@ -20,6 +20,7 @@ class FilmListing extends Component {
   render() {
 
     const { faves, films } = this.props
+
     var  allFilter  = (this.state.filter === 'all' ? 'is active' : '')
     var  favesFilter = (this.state.filter === 'faves' ? 'is active' : '')
 

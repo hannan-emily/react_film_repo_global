@@ -24,11 +24,11 @@ class App extends Component {
     const filmIndex = faves.indexOf(film)
     //if the item is found (if index is NOT -1), then, add to array of faves
     if (filmIndex !== -1) {
-      //if the film is ALREADY faved
+      //if the film is ALREADY a fave
       faves.splice(filmIndex, 1)
       console.log("removing a favorite from fave array", film.title)
     } else {
-      //the film needs to be added
+      //the film needs to be added to faves
       faves.push(film)
       console.log("adding a favorite to fave array", film.title)
     }
