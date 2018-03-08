@@ -31,7 +31,9 @@ class FilmListing extends Component {
           title={film.title}
           date={film.release_date}
           key={film.id} url={film.poster_path}
-          isFave={faves.includes(film)} />
+          isFave={faves.includes(film)}
+          onDetailsClick={() => this.props.onDetailsClick(film)}
+        />
         )
     })
 
@@ -47,7 +49,7 @@ class FilmListing extends Component {
 
             <div className={"film-list-filter " + favesFilter} onClick={() => this.handleFilterClick('faves')}>
                 <span>FAVES</span>
-                <span className="section-count">0</span>
+                <span className="section-count">{faves.length}</span>
             </div>
 
         </div>

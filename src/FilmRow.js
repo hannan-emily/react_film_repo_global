@@ -4,9 +4,7 @@ import Fave from './Fave';
 
 class FilmRow extends Component {
 
-  handleDetailsClick = (title) => {
-    console.log("Fetching details for" + title)
-  }
+
 
   render() {
 
