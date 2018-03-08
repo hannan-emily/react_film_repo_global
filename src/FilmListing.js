@@ -34,12 +34,12 @@ class FilmListing extends Component {
         <h1 className="section-title">FILMS</h1>
         <div className="film-list-filters">
 
-            <div className={"film-list-filter" + allFilter} onClick={() => this.handleFilterClick('all')}>
+            <div className={"film-list-filter " + allFilter} onClick={() => this.handleFilterClick('all')}>
                 <span>ALL</span>
                 <span className="section-count">{this.props.films.length}</span>
             </div>
 
-            <div className={"film-list-filter" + favesFilter} onClick={() => this.handleFilterClick('faves')}>
+            <div className={"film-list-filter " + favesFilter} onClick={() => this.handleFilterClick('faves')}>
                 <span>FAVES</span>
                 <span className="section-count">0</span>
             </div>
