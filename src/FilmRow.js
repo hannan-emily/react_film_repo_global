@@ -15,7 +15,7 @@ class FilmRow extends Component {
 
 
     return (
-      <div className="film-row" onClick={() => this.handleDetailsClick(title)}>
+      <div className="film-row" onClick={this.props.onDetailsClick}>
         <FilmPoster title={title} url={url} />
         <div className="film-summary">
           <h1>{title}</h1>
